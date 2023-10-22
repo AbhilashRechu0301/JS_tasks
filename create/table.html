@@ -1,0 +1,40 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+      <table style="width:100%" id="productList">
+
+      </table>
+        <script>
+            var product= [{
+    "id": 1,
+    "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+    "price": 109.95,
+    "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+    "category": "men's clothing",
+    "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+    "rating": {
+      "rate": 3.9,
+      "count": 120
+    }
+  }]
+  
+   
+  var productList = document.getElementById("productList");
+       var listheads = "";
+
+        var listItems = "";
+        for (var index = 0;index < product.length; index++) {
+            var product = product[index];
+            listheads += "<th>" + id +"  " +  title + "  " + price + "  " + description + "  " + category + "  " +  product.image  + product.rating + "</th>";
+            listItems = listItems + "<td>"
+     + product.id + "  " +  product.title + "  " + product.price + "  " + product.description + "  " + product.category + "  " + "<img style = width:100px; height =120px; src=" + product.image + ">" + product.rating + "  " + "</td>" ;
+            
+        }
+        console.log(listItems);
+        productList.innerHTML = listItems;
+        productList.innerHTML = listheads;
+        </script>
+    </body>
+</html>

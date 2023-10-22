@@ -1,0 +1,33 @@
+<html>
+<head>
+</head>
+<body id="body">
+    <select id="theme" onchange="changeTheme()">
+        <option>Select your theme</option>
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+        <option value="medium">Medium</option>
+    </select>
+    <h1 style="margin-left:500px; margin-top:300px">Digital Lync Technologies</h1>
+    <script>
+        var body = document.getElementById("body");
+        function changeTheme() {
+            var choice = document.getElementById("theme").value;
+            switch (choice) {
+                case "dark":
+                    body.style.backgroundColor = "black";
+                    body.style.color = "white";
+                    break;
+                case "light":
+                    body.style.backgroundColor = "lightgrey";
+                    body.style.color = "white";
+                    break;
+                case "medium":
+                    body.style.backgroundColor = "grey";
+                    body.style.color = "white";
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

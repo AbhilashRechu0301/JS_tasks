@@ -1,0 +1,27 @@
+<html>
+
+<head>
+<style>
+   
+</style>
+</head>
+<body  oncontextmenu = "return menu()">
+    <input type ="text" onpaste = "return paste()" oncopy = "return copy()"><span id = "msg" stlye = "color:red"></span>
+
+<script>
+   function menu(){
+        alert("clicking on page is retricted");
+        return false;
+    }
+    function copy(){
+        document.getElementById("msg").innerHTML= "copying is retricted";
+        return false;
+    }
+    function paste(){
+        document.getElementById("msg").innerHTML= "pasting is retricted";
+        return false;
+    }
+
+</script>
+</body>
+</html>

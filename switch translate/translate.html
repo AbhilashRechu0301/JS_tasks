@@ -1,0 +1,35 @@
+<html>
+<head>
+</head>
+<body id="body">
+    <select id="translate" onchange="translatesentence()">
+        <option>English</option>
+        <option value="Telugu">Telugu</option>
+        <option value="Hindi">Hindi</option>
+        <option value="Deutsch">Deutsch</option>
+        <option value="Tamil">Tamil</option>
+    </select>
+    <h1 id = "text" style="margin-left:500px; margin-top:300px">today is monday</h1>
+    <script>
+        var body = document.getElementById("body");
+        function translatesentence() {
+            var choice = document.getElementById("translate").value;
+            switch (choice) {
+                
+                case "Telugu":
+                document.getElementById("text").innerHTML='ఈరోజు సోమవారం';
+                break;
+                case "Hindi":
+                 document.getElementById("text").innerHTML='आज सोमवार हे';
+                    break;
+                case "Deutsch":
+                document.getElementById("text").innerHTML='Heute ist Montag';
+                    break;
+                case "Tamil":
+                 document.getElementById("text").innerHTML='இன்று திங்கள் கிழமை';
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

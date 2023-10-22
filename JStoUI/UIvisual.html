@@ -1,0 +1,40 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+ 
+    <script>
+        // client creation - 0
+        var httpRequest = new XMLHttpRequest();
+        
+
+        // 1
+        httpRequest.open("get", "https://fakestoreapi.com/products");
+
+        // 2
+        httpRequest.send();
+
+        httpRequest.onreadystatechange = function () {
+            console.log(httpRequest.readyState);
+            if (httpRequest.readyState == 4) {
+                console.log(JSON.parse(httpRequest.responseText));
+                
+                
+            }
+        }
+        
+        for (var i = 0;i < data.length; i++) {
+            var data = data[index];
+            listItems = listItems + "<li>" + data.name + "  " + data.price + "</li>";
+        }
+        document.getElementById("demo").innerHTML = listItems;
+        var data = JSON.parse(httpRequest.responseText);
+       
+    </script>
+
+</body>
+
+</html>

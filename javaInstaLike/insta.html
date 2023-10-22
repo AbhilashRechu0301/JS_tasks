@@ -1,0 +1,35 @@
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+
+   
+    <i onclick="toggleHeart()" id="heart" class="fa fa-heart-o" style="font-size:48px;color:red"></i>
+
+   
+
+</body>
+<script>
+
+    function toggleHeart(){
+    
+     var icon = document.getElementById("heart");
+     console.log(icon.className);
+     if(icon.className=="fa fa-heart-o"){
+        icon.className="fa fa-heart";
+     }
+    else{
+        icon.className="fa fa-heart-o"
+    
+    }
+    
+    }    
+    
+        </script>
+</html>

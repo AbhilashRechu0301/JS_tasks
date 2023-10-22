@@ -1,0 +1,386 @@
+<html>
+ <head>
+    <title>Online Shopping Site</title>
+     <!--meta http-equiv="refresh" content="3"for HTML comment-->
+    <!--style="width:500px;height:25px;margin-left: 300px;margin-bottom:100px;padding-bottom:10px" type="text"-->
+   <!--link rel="flipkart_icon"  type="flipkart-icon.webp" href="https://www.google.com/search?q=flipkart+india&rlz=1C1CHBF_enDE820DE820&sxsrf=ALiCzsab946lfKS5Pl6z9asj0xykba-IlA:1670454141511&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjwm9_Nzuj7AhWJHOwKHeXABncQ_AUoAHoECAIQCg&biw=1366&bih=657&dpr=1#imgrc=ukCxVfrvsdtBIM"-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+   <style>
+        *{margin:0;
+        padding:0;}
+       #navbar {
+         height: 56px;
+            width: 100%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background-color: #2874f0;
+            cursor:pointer;
+
+        }
+        #searchbox{
+            background-color:white;
+            width:600px;
+            height:35px;
+            margin-left: 20px;
+            border:0px solid;
+            box-shadow: 0px 1px 1px 0px  white;
+        }
+        #Login{
+            background-color:white;
+            width:125px;
+            height:30px;
+            margin-left: 10px;
+        }
+        
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    margin: 0;
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color:rgb(59, 123, 219);
+  padding: 05px 40px;
+  background-color: inherit;
+  font-family: Roboto, Arial, sans-serif;
+   font-size:15px;font-weight:bolder;cursor:point;
+   text-decoration:none
+  
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 100px;
+  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  text-decoration:none; /* margin-left:1px;*/
+  width:250px; 
+  margin-left:-60px;
+  margin-top:16px;
+  padding: 5px;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 20px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  font-family:arial;
+  font-size:12px;
+  
+}
+
+.dropdown-content a:hover {
+  background-color: whitesmoke;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+      
+
+    
+        #seller{
+            
+            margin-left: 40px;
+            margin-top: 3px;
+            cursor:pointer;
+        }
+        #More{
+            
+            margin-left: 10px;
+            margin-top: 5px;
+            cursor:pointer;
+        }
+        #arrow{
+        border: solid white;
+        border-width: 0 1px 1px 0;
+        display: inline-block;
+        margin-left:43px;
+        margin-top: -15px;
+        padding: 3px;
+        transform: rotate(45deg);
+       -webkit-transform: rotate(45deg);
+        }
+        #shopping_Cart{
+            
+            margin-left:-10px;
+            margin-top: 5px;
+            cursor:pointer;
+        }
+        #Cart{
+            
+            margin-left:3px;
+            margin-top: 5px;
+            cursor:pointer;
+        }
+        
+        p:hover{
+            text-decoration: underline;
+            cursor:pointer;
+        }
+        #categories{
+            height: 112px;
+            width: 100%;
+            background-color: whitesmoke;
+            
+           
+        }
+        .resize{
+            width:64px;
+            height:64px;
+           margin:10px 60px;
+            
+        }
+        #carausal{
+            height: 250px;
+            width: 100%;
+            background-color: whitesmoke;
+        }
+        
+        * {box-sizing: border-box}
+        body {font-family: Verdana, sans-serif; 
+            margin:0
+        }
+
+       .mySlides {
+        display: none
+    }
+        img {
+            vertical-align: middle;
+        }
+
+/* Slideshow container */
+.slideshow-container {
+  min-width: 1000px;
+  height: 80px;
+ 
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text .text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}*/
+
+
+/* Number text (1/3 etc).numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+} */
+
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+    </style>
+ </head>
+ <body>
+<div id="main">
+
+ <div id="navbar">
+    <!--div>
+    <img style="width:75px;height:20px;font-family: Roboto, Arial, sans-serif;font-size:15px;" src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/flipkart-plus_8d85f4.png">
+    <p style="color:white; font-style: italic; font-size: 12px;">Explore <span style="color:yellow">Plus</span>
+        <img style="width: 10px; height: 10px;margin-bottom:1px;" src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/plus_aef861.png">
+    </p>
+    </div-->
+    <div id="searchbox">
+        <input size="40" style="width:550px;font-style:normal;font-family: Roboto, Arial, sans-serif;font-size:13px;margin-top:10px;margin-left:10px;border:0; outline:0" type="text" placeholder="Search for products, brands and more">
+        <i class="fa fa-search" style="font-size:18px;color:rgb(49, 112, 207);margin-left:565px;margin-top:-17px"></i>
+    </div>
+
+    <div id="Login">
+        <div class ="dropdown">
+            <button class ="dropbtn">Login 
+            </button>
+           
+            <div class ="dropdown-content">
+            
+                
+              <a href="#"><b>New customer?</b>  <span style="margin-left:50px; color:rgb(34, 112, 202);font-family: Arial, Helvetica, sans-serif;font-size: 14px;font-weight:bold;">Sign Up</span></option>
+              <a href="#">my profile</a>
+              <a href="#">Flipkart plus zone</an>
+              <a href="#">Orders</a>
+              <a href="#">Wishlist</a>
+              <a href="#">Rewards</a>
+              <a href="#">Gift Cards</a>
+            </div>
+          </div> 
+
+        
+    
+    </div>
+    <div id="seller" >
+        <p style="text-decoration:none;color:white;font-family: Roboto, Arial, sans-serif;font-size:15px;font-weight:bolder;letter-spacing:0.1px;line-height:20px; width:140px;height:20px;">Become a Seller</p>
+       
+    </div>
+    <div class ="dropdown">
+    <div id="More" >
+        <p style="text-decoration:none;color:white;font-family: Roboto, Arial, sans-serif;font-size:15px;font-weight:bolder;letter-spacing:0.1px;line-height:20px; width:100px;height:20px;">More</p>
+        <div id="arrow">
+            <i class="arrow down" style="color:white;font-size:10px;"></i>
+           
+     </div>
+        <div class ="dropdown-content">
+            
+            <a href="#">Notification Preferances</a>
+            <a href="#">24X7 Customer Service</a>
+            <a href="#">Advertise</a>
+            <a href="#">Download App</a>
+          </div>
+        </div>
+    
+    </div>
+    <div id="shopping_Cart">
+           <i class="fa fa-shopping-cart" style="color:white;font-size:20px;"></i>
+    </div>
+    <div id="Cart">
+       <p style="display:inline;text-decoration:none;color:white;font-family: Roboto, Arial, sans-serif;font-size:15px;font-weight:bolder;letter-spacing:0.1px;line-height:20px; width:100px;height:20px;margin-left:5px;">Cart</p>
+    </div> 
+ </div>
+
+ <div id="categories">
+    <h2 style="text-align: center">Categories</h2>
+
+    <img class="resize" src="https://rukminim1.flixcart.com/flap/128/128/image/29327f40e9c4d26b.png?q=100" alt="Grocery">
+    <img class="resize" src="https://rukminim1.flixcart.com/flap/128/128/image/22fddf3c7da4c4f4.png?q=100" alt="Mobiles">
+    <img class="resize" src="https://rukminim1.flixcart.com/flap/128/128/image/c12afc017e6f24cb.png?q=100" alt="Fashion">
+    <img class="resize" src="https://rukminim1.flixcart.com/flap/128/128/image/69c6589653afdb9a.png?q=100" alt="Electronics">
+    <img class="resize" src="https://rukminim1.flixcart.com/flap/128/128/image/ab7e2b022a4587dd.jpg?q=100" alt="Home">
+    <img class="resize" src="https://rukminim1.flixcart.com/flap/128/128/image/0ff199d1bd27eb98.png?q=100" alt="Appliances">
+    <img class="resize" src="https://rukminim1.flixcart.com/flap/128/128/image/71050627a56b4693.png?q=100" alt="Travel">
+    <img class="resize" src="https://rukminim1.flixcart.com/flap/128/128/image/f15c02bfeb02d15d.png?q=100" alt="Top Offers">
+    <img class="resize" src="https://rukminim1.flixcart.com/flap/128/128/image/dff3f7adcf3a90c6.png?q=100" alt="Beauty, Toys & More">
+    <img class="resize" src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/05d708653beff580.png?q=100" alt="2-wheelers">
+    
+
+ </div>
+ <br>
+ <div id="carausal">
+ <div class ="slideshow-container">
+    <div class = "mySlides fade">
+        <img src="https://www.w3schools.com/howto/img_nature_wide.jpg" style="width:100%">
+    </div>
+    <div class = "mySlides fade">
+        <img src="https://www.w3schools.com/howto/img_snow_wide.jpg" style="width:100%">
+    </div>
+    <div class = "mySlides fade">
+        <img src="https://www.w3schools.com/howto/img_mountains_wide.jpg" style="width:100%">
+    </div>
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+ </div>
+ <br>
+ <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span> 
+    <span class="dot" onclick="currentSlide(2)"></span> 
+    <span class="dot" onclick="currentSlide(3)"></span> 
+  </div>
+</div>
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}    
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+    }
+
+    </script>
+
+</body>
+
+</html>

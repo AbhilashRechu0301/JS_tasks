@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments</title>
+</head>
+<body>
+    
+    
+    <button onclick="display()">comment</button><br><br>
+    <div id = "show">
+    <input type = 'text' id = "name" placeholder="enter your name"><br><br>
+    <textarea cols="50" rows="5" id = "comment" placeholder="message here"></textarea> <span><button onclick="AddComment()">Add comment</button></span> <br><br>
+    </div>
+    <ul id="commentsdata">
+       
+    </ul>
+    
+
+    <script>
+        var comments = [];
+        displaycomment();
+        
+        //var name=document.getElementById("comment").value;
+       // var comment=document.getElementById("comment").value;
+
+        //var commentuser = {
+        //    name: name,
+        //    comment: comment
+       // }
+      var showDiv = document.getElementById("show");
+      showDiv.style.display = "none"; //--------------------------- not displaying the div of whole comment and user section-----------------
+     function display(){
+        showDiv.style.display = "inline";//--------------------------- displaying the div of whole comment and user section-----------------
+     }
+
+     //--------------------------- ADDING the comment and user name-----------------
+     function AddComment(){
+        var name= document.getElementById("name").value;
+        var comment=document.getElementById("comment").value;
+        var ID = generateUniqueID();
+
+        var commentuser = {
+           name: name,
+           comment: comment,
+           ID: ID
+        }
+        comments.push(commentuser);
+        console.log("name:", name);
+        console.log("comment:", comment);
+        console.log("ID:", ID);
+        console.log("commentuser", commentuser);
+
+        document.getElementById("name").value = ""; // this was used once the comment is added and the username  & comment next line "comment" 
+                                                     //will be gone and ready for next comment with next username
+        document.getElementById("comment").value = "";
+        showDiv.style.display = "none";
+        displaycomment();
+     }
+ 
+     //---------------------------giving unique ID for the comment and user -----------------
+     var uniqueId = 100;
+     function generateUniqueID(){
+        uniqueId++;
+        return uniqueId;
+     }
+
+      //--------------------------- Displaying the comment and user name on DOM-----------------
+     function displaycomment(){
+        var commentsdata = "";
+      var allComments = document.getElementById("commentsdata");
+      if(comments.length==0){
+        allComments.innerHTML = "No comments yet!"
+      }
+      else{
+        for (var i= 0; i < comments.length; i++){
+            var Usercomment = comments[i];
+            commentsdata = commentsdata + "<li>" + Usercomment.name + ": &nbsp;&nbsp;"+"<span id = "+Usercomment.ID+" onkeyup='editComment(" + Usercomment.ID + ")' onmouseout='updateComment(" + Usercomment.ID + ")' onclick= 'makeiteditable(" +Usercomment.ID + ")' >"+ Usercomment.comment+"</span>"+"<span>" + " &nbsp;&nbsp;&nbsp; "  + "<button onclick='deleteComment(" +Usercomment.ID + ")'>Delete</button>"+"</span>" + " &nbsp;&nbsp;&nbsp; " +  "</li>";
+        }
+        allComments.innerHTML = "<ul>" + commentsdata + "</ul>";
+      }
+     }
+
+      //--------------------------- Deleting the comment and user name from DOM by using uniqueID-----------------
+      function deleteComment(commentID){
+        console.log("commentID", commentID);
+       comments.forEach(function (comment, i) {
+           if (comment.id = commentID){
+               comments.splice(i, 1);
+               return comments;
+          } 
+        });
+        displaycomment();
+    }
+
+
+    function makeiteditable(commentID){ 
+     
+      document.getElementById(commentID).contentEditable = true; // mostly we don't nee onkey up function 
+      
+      //onkeyup='editComment(" + Usercomment.ID + ")' + Usercomment.comment+"&nbsp;&nbsp;&nbsp;" " + " onkeyup='editComment(" + userComment.id + ")---------"<span id = "+Usercomment.ID+" onclick=makeiteditable(" +Usercomment.ID + ")>"+"</span>"----------------
+    }
+
+    function editComment(commentID){
+        var content = document.getElementById(commentID).innerHTML;
+        console.log("content", content)
+      }
+
+      function updateComment(commentID){
+        
+            comments.forEach(function(comment, i){
+            if (comment.id = commentID){
+             comment.comment = document.getElementById(commentID).innerHTML; // onmouseout='updateComment(" + Usercomment.ID + ")' or "<span>"+"<button onclick=updateComment(" +Usercomment.ID + ")>Update</button>"+"</span>"+
+             console.log("comment updated:",  comment.comment);
+          return;
+          
+      }
+      
+
+   })
+   
+   displaycomment();
+      }
+
+
+    </script>
+</body>
+</html>

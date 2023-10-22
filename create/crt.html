@@ -1,0 +1,63 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+      <table cellpadding="2" cellspacing="2" border="0" bgcolor="#dfdfdf" width="100%" align="center">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th width="50%" align="center">title</th>
+                <th width="80%" align="center">description</th>
+                <th width="200%">category</th>
+                <th width="100%">image</th>
+                <th width="100%">rating</th>
+            </tr>
+        </thead>
+            <tbody id="tableData"></tbody>
+        </table>
+        <script type="text/javascript">
+            var mainObj = [{
+            "id": 1,
+    "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+    "price": 109.95,
+    "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+    "category": "men's clothing",
+    "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+    "rating": {
+      "rate": 3.9,
+      "count": 120
+    }
+    },
+          { "id": 1,
+    "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+    "price": 109.95,
+    "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+    "category": "men's clothing",
+    "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+    "rating": {
+      "rate": 3.9,
+      "count": 120
+    }
+  }];
+            var k = '<tbody>'
+            for(i = 0;i < mainObj.length; i++){
+                k+= '<tr>';
+                k+= '<td >' + mainObj[i].id + '</td>';
+                k+= '<td>' + mainObj[i].title + '</td>';
+                k+= '<td>' + mainObj[i].description + '</td>';
+                k+= '<td>' + mainObj[i].category + '</td>';
+                k+= '<td>' + mainObj[i].image + '</td>';
+                k+= '<td>' + mainObj[i].rating + '</td>';
+                k+= '</tr>';
+            }
+            k+='</tbody>';
+            document.getElementById('tableData').innerHTML = k;
+            </script>
+
+      <script>
+
+          
+      </script>
+    </body>
+</html>

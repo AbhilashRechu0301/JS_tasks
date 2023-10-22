@@ -1,0 +1,19 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+       
+          <input id="password" type="password">    
+        <button  onclick="validate()">Login</button>
+
+        <script>
+
+             function validate(){
+            
+            var password = document.getElementById("password").value;
+            password.length >= 8 ? alert("success"):alert("unsucess")
+            }
+        </script>
+    </body>
+</html>

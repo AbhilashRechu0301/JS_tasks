@@ -1,0 +1,45 @@
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    
+#down{
+    transform: rotate(180deg);
+}
+</style>
+</head>
+
+<body>
+
+<div id ="like">
+   
+    <i onclick="updatelikes()" class="fa fa-thumbs-up" style="font-size:36px;color:black"></i> <span id="count">0</span>
+    <i onclick="updatedislikes()"  id="down" class="fa fa-thumbs-up" style="font-size:36px;color:black"></i> 
+</div>
+    <script>
+
+        var likes = 0;
+
+        function updatelikes() {
+            likes = likes + 1;
+            document.getElementById("count").innerHTML = likes;
+        }
+        
+        function updatedislikes() {
+
+         likes = likes - 1;
+          if (likes <= 0){
+           likes= 0;
+          }
+          document.getElementById("count").innerHTML = likes;
+          }
+         
+    </script>
+
+</body>
+
+</html>
+
+

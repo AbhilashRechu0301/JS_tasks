@@ -1,0 +1,22 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+       
+          <input id="email" type="email" placeholder="Email or phone number ">
+          <br><br>
+          
+          <input id="password" type="password">    
+        <button  onclick="validate()">Login</button>
+
+        <script>
+
+             function validate(){
+            var email= document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            ((email=="s@gmail.com"||email=="9705688854")&&password=="abcdef")? alert("success"):alert("unsucess")
+            }
+        </script>
+    </body>
+</html>

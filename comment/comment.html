@@ -1,0 +1,116 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+    <br><br><button onclick="display()">Comment</button> <br><br><br>
+
+    <div id="add">
+        <input type="text" id="name" placeholder="enter your name"> <br><br>
+        <textarea cols="50" id="comment" rows="5"></textarea> <button onclick="addComment()">Add Comment</button>
+    </div>
+
+    <ul id="xyz" style="list-style-type: none">
+
+    </ul>
+
+    <script>
+
+        var comments = [];
+
+        showComments();
+
+        var addDiv = document.getElementById("add");
+
+        addDiv.style.display = "none";
+
+        function display() {
+            addDiv.style.display = "inline";
+        }
+
+        function addComment() {
+            var name = document.getElementById("name").value;
+            var comment = document.getElementById("comment").value;
+            var id = generateUniqueId();
+            var commentObj = {
+                name: name,
+                comment: comment,
+                id: id
+            }
+
+            comments.push(commentObj);
+            console.log(commentObj);
+            document.getElementById("name").value = "";
+            document.getElementById("comment").value = "";
+            
+            addDiv.style.display = "none";
+            showComments();
+        }
+ 
+        var uniqueId = 900;
+        function generateUniqueId() {
+            uniqueId++;
+            return uniqueId;
+        }
+
+        function showComments() {
+            var commentsData = "";
+            var allComments = document.getElementById("xyz");
+            if (comments.length == 0) {
+                allComments.innerHTML = "No Comments Yet!";
+            }
+            else {
+                for (var i = 0; i < comments.length; i++) {
+                    var userComment = comments[i];
+                    commentsData = commentsData + "<li >" + userComment.name + ": &nbsp;&nbsp;" + "<span id=" + userComment.id + " onmouseout=updateEditedComment(" + userComment.id + ")" + " onclick=makeEditable(" + userComment.id + ")'>" + userComment.comment + "</span>" + " <button onclick='deleteComment(" + userComment.id + ")' style='margin-left:30px'>Delete</button>" + "</li> <br><br>";
+                }
+                //console.log("allComments", allComments);
+                //commentsData = "<ul style='list-style-type:none>" + commentsData + "</ul>";
+                console.log("commentsData", commentsData);
+                allComments.innerHTML = commentsData;
+            }
+        }
+        function deleteComment(commentId) {
+            console.log("commentId", commentId);
+
+            comments.forEach(function (result, i) {
+
+                if (result.id == commentId) {
+                    comments.splice(i, 1);
+                    return;
+                }
+
+            })
+            showComments();
+        }
+
+        function makeEditable(commentId) {
+            document.getElementById(commentId).contentEditable = true;
+
+        }
+
+        function editComment(commentId) {
+            var content = document.getElementById(commentId).innerHTML;
+            console.log("content", content);
+
+        }
+
+        function updateEditedComment(commentId) {
+
+            comments.forEach(function (result, i) {
+
+                if (result.id == commentId) {
+                    result.comment = document.getElementById(commentId).innerHTML;
+                    return;
+                }
+            })
+            showComments();
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File slection</title>
+</head>
+<body>
+    <br><br><br><br><br><br>
+    <center>
+        <div>
+            <input id ="selectall" onclick="selectAll()" type="checkbox"> Select All
+            <ul id="documents" style="list-style-type: none;"></ul>
+        </div>
+    </center>
+    
+
+    <script>
+        var docs=["document1", "document2",
+        "document3", "document4", "document5",
+        "document6", "document7", "document8",
+        "document9", "document10",
+        ]
+
+        alldocs = "";
+        docs.forEach(function(doc){
+            alldocs += "<li>"+ "<input type=checkbox id ="+doc+">" +doc+"</li> <br>";
+        })
+        document.getElementById("documents").innerHTML = alldocs;
+
+        function selectAll(){
+        var docsSelected = document.getElementById("selectall").checked;
+        console.log("docsSelected", docsSelected);
+        var docsInputs = document.getElementsByTagName("Inputs");
+        selectionhelper(docsInputs, docsSelected);
+        }
+
+         function selectionhelper(docsInputs, selectionFlag){
+          var check = false;
+          if(selectionFlag){
+            check = true;
+          }
+          for (var i=0; i < docsInputs.length; i++){
+            if (docsInputs[i].id != "selectall" ){
+              docsInputs[i].checked = check; 
+            }
+          }
+
+
+         }
+
+    </script>
+</body>
+</html> 

@@ -1,0 +1,43 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+  
+        <h1 style="color:green;">
+            GeeksforGeeks
+        </h1>
+      
+        <p id="GFG_UP">
+        </p>
+      
+        <button onClick="GFG_Fun()">
+            click here
+        </button>
+      
+        <p id="GFG_DOWN">
+        </p>
+      
+        <!-- Script to calculate difference between two dates -->
+        <script>
+            var up = document.getElementById('GFG_UP');
+            var down = document.getElementById('GFG_DOWN');
+              
+            // Declare dates
+            var newYear1 = new Date("01-01-2019");
+            var newYear2 = new Date("01-01-2020");
+              
+            // Display the dates
+            up.innerHTML = "First Date= "+ newYear1.toLocaleDateString()
+                + "<br> Second Date = " + newYear2.toLocaleDateString();
+              
+            // Function to calculate difference
+            // between two dates
+            function GFG_Fun() {
+                var dif = (newYear2 - newYear1);
+                var dif = Math.round((dif/1000)/60);
+                down.innerHTML = "Minutes left = " + dif;
+            }
+        </script>
+    </body>
+</html>

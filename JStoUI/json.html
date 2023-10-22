@@ -1,0 +1,82 @@
+
+<html>
+
+<head>
+
+</head>
+
+
+
+<body>
+
+    <ol id="Products-list"></ol>
+    <script>
+      
+        
+    
+        // client creation - 0
+         var httpRequest = new XMLHttpRequest();
+        
+       
+        // 1
+        httpRequest.open("get", "https://fakestoreapi.com/products");
+
+        // 2
+        httpRequest.send();
+
+        httpRequest.onreadystatechange = function () {
+            console.log(httpRequest.readyState);
+            if (httpRequest.readyState == 4) {
+                var data = httpRequest.responseText;
+                var Products = JSON.parse(data)
+
+                console.log(Products);
+                
+                var ProductsList = document.getElementById("Products-list");
+                var listItems = "";
+
+                for (var i = 0; i < Products.length; i++){
+                   var Product = Products[i];
+                   listItems = listItems + "<li>" + "<tr>" + "<td>" + Product.category + "  " + Product.description  + "  " + Product.id + "  "  + Product.price + "  " + Product.title + "<img src=" + Product.image + ">"+ "</td>"  + "</tr>" + "</li>";  
+                  //listItems = listItems + "<li>" + Product.title + "</li>";
+                }
+                console.log(listItems);
+                ProductsList.innerHTML = listItems;
+            }
+            
+        };
+
+
+        
+
+
+
+        
+       
+        
+
+        
+       
+        
+
+
+       
+    
+        
+
+        
+    
+        
+        
+        
+        
+        
+        
+        
+       
+    </script>
+
+</body>
+
+</html>
+

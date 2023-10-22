@@ -1,0 +1,106 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+    <select id="state" onchange="populateCities()">
+        
+    </select>
+
+    <select id="city" onchange="cityName()">
+
+    </select>
+    <select id="Mandal" onchange="MandalName()">
+
+    </select>
+    <p id="dem"></p>
+    
+    <p id="demo"></p>
+    <p id="demos"></p>
+    <script>
+
+        var states = ["Telangana", "Karnataka", "Tamilnadu", "Andhra Pradesh", "Goa"];
+
+        var cities = {
+            "Telangana": ["Hyderabad", "Warangal", "Karimnagar", "Mahabubnagar", "Suryapet", "Nizamabad"],
+            "Karnataka": ["Bengaluru", "Mangalore", "Ballari", "Mysuru", "Vijaypura", "sivamogga"],
+            "Tamilnadu": ["Chennai", "Coimbatore", "Salem", "Madhurai", "Thanjavur", "Tiruppur"],
+            "Andhra Pradesh": ["Guntur", "Vijawada", "Vizag", "Tirupati", "Kadapa", "Ongole"],
+            "Goa": ["Panjim", "Mapusa", "Margao", "Canacona", "Quepem", "Ponda"],
+        }
+        var mandal = {
+            "Hyderabad": ["parigi", "Thandur", "shamshabad", "Mahabubnagar", "Narsing"],
+            "Warangal": ["Hanamkonda", "Mahabubabad", "Jangaon", "Bhupalpalle", "Maripeda"],
+            "Karimnagar": ["kothapally", "Ramadugu", "Gangadhara", "Ganneruvaram", "Thimmapur"],
+            "Mahabubnagar": ["Jadcherla", "Shadnagar", "Thimajipet", "Avancha", "Kothakota"],
+            "Suryapet": ["Manchiryal", "Huzurnagar", "Kodada", "Nereducharla", "Thirumalagiri"],
+            "Nizamabad": ["Armur", "Balkonda", "Banswada", "Bheemgal", "Bodhan"],
+            "Bengaluru": ["Ramanujapur", "Venkatapur", "Solipet", "Narkoda", "Rayanaguda"],
+            "Mangalore": ["Moinabad", "L.B.nagar", "Sulthanpally", "Gudur", "Nanajipur"],
+            "Ballari": ["kothrapally", "Kadthal", "kurnool", "Nandigama", "Kothur"],
+            "Mysuru": ["Hubli", "Delhi", "U.P", "U.S", "UAE"],
+            "Vijaypura": ["Germany", "Frankfurt", "Leipzig", "Halle", "Dresden"],
+            "sivamogga": ["Chicago", "Texas", "W.C", "New york", "Jersey"],
+        }
+
+        var statesOptionList = "";
+
+        for (var i = 0; i < states.length; i++) {
+        statesOptionList = statesOptionList + "<option value='" + states[i] + "'>" + states[i] + "</option>";
+}
+
+var stateSelectionList = document.getElementById("state");
+stateSelectionList.innerHTML = statesOptionList;
+
+function populateCities() {
+
+    var selectedState = document.getElementById("state").value;
+    document.getElementById("dem").innerHTML = "you are in"+ "\t"+ selectedState + "\t" + "state" ;
+    var citiesByState = cities[selectedState];
+
+    var citiesOptionList = "";
+
+    for (var i = 0; i < citiesByState.length; i++) {
+        citiesOptionList = citiesOptionList + "<option value='" + citiesByState[i] + "'>" + citiesByState[i] + "</option>";
+    }
+    document.getElementById("city").innerHTML = citiesOptionList;
+   
+}
+    populateCities();
+
+    function cityName() {
+
+        var cityName = document.getElementById("city").value;
+        document.getElementById("demo").innerHTML = "you are in"+ "\t"+ cityName + "\t" + "city" ;
+        var mandalsBycity = mandal[cityName];
+
+    var MandalOptionList = "";
+
+    for (var i = 0; i < mandalsBycity.length; i++) {
+        MandalOptionList +=  "<option value='" + mandalsBycity[i] + "'>" +mandalsBycity[i] + "</option>";
+    }
+    document.getElementById("Mandal").innerHTML = MandalOptionList;
+   
+    }
+    cityName();
+
+    function MandalName() {
+
+    var MandalName = document.getElementById("Mandal").value;
+    document.getElementById("demos").innerHTML = "you are in"+ "\t"+ MandalName + "\t" + "Mandal" ;
+   }
+   MandalName();
+     
+
+
+
+
+
+</script>
+
+</body>
+
+</html>
